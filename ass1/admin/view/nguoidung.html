@@ -1,0 +1,49 @@
+<div class="p-4" style="min-height: 440px;" ng-controller="cha">
+    <h4 class="text-primary mb-4">danh sách khách hàng</h4>
+    <div ng-controller="form">
+        <form>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">tên điện thoại</label>
+                <input type="text" ng-model="$parent.dienthoai.ten" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">hãng</label>
+                <input type="text" ng-model="$parent.dienthoai.gia" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">số lượng</label>
+                <input type="text" ng-model="$parent.dienthoai.mota" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="luu()">Submit</button>
+            <button type="submit" class="btn btn-primary" ng-click="xoa()">delete</button>
+        </form>
+    </div>
+    <table class="table mt-3" ng-controller="table">
+        <div ng-repeat="(index,value) in $parent.nguoidungs"></div>
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Tên khách hàng</th>
+                <th scope="col">số điện thoại</th>
+                <th scope="col">Mô tả</th>
+                <th scope="col">Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{value.stt}}</th>
+                <td>{{value.ten}}</td>
+                <td>{{value.sdt}}</td>
+                <td>
+                    {{value.mota}}
+                </td>
+                <td>
+                    <button class="btn btn-warning" ng-click="suaIndex(index)">Sửa</button>
+                    <button class="btn btn-danger" ng-click="xoaIndex(index)">Xóa</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body ng-app="MyApp">
+
+    <div class="parent" ng-controller="cha">
+        <h1 class="text-center">Danh sách nhân viên</h1>
+        <div class="form" ng-controller="form">
+            
+            <label class="form-label">Họ và tên</label>
+            <input type="text" ng-model="$parent.nhanvien.HoVaTen" class="form-control">
+            <label class="form-label ">Địa chỉ</label>
+            <input type="text" ng-model="$parent.nhanvien.que" class="form-control" >
+            <label class="form-label">Giờ làm việc</label>
+            <input type="text"ng-model="$parent.nhanvien.GioLamViec" class="form-control" >
+            <div class="mt-4">
+                <button class="btn btn-info" ng-click="luu()">Lưu</button>
+                <button class="btn btn-danger" ng-click="huy()">Hủy</button>
+            </div>
+        
+        </div>
+        <div class="table mt-5">
+            <table class="table" ng-controller="table">
+                <thead>
+                    <tr>
+                        <th>Họ và tên</th>
+                        <th>Địa chỉ</th>
+                        <th>Giờ làm việc</th>
+                        <th>Thưởng</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(index, value) in $parent.nhanviens">
+                        <td>{{ value.HoVaTen }}</td>
+                        <td>{{ value.que }}</td>
+                        <td>{{ value.GioLamViec }}</td>
+                        <td>{{ value.Thuong }}</td>
+                        <td>
+                            <button class="btn btn-warning" ng-click="saveIndex(index)">Sửa</button>
+                            <button class="btn btn-danger">Xóa</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

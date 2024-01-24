@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body ng-app="myapp">
+
+    <div ng-controller="taiday">
+        <ul>
+            <li>họ tên: {{student[0].ten}}</li>
+            <li>tuổi: {{student[0].ns}}</li>
+            <li>giới tính : {{student[0].gioitinh}}</li>
+            <li>ảnh: <img style="width: 150px;" src="{{student[0].anh}}" alt=""></li>
+            <li>điểm: {{student[0].diem}}</li>
+        </ul>
+    </div>
+
+    <div ng-controller="chonay" >
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">hình</li>
+            <li class="list-group-item">ho ten</li>
+            <li class="list-group-item">ngaysinh</li>
+            <li class="list-group-item">gioitinh</li>
+            <li class="list-group-item">điểm</li>
+<tr ng-repeat="student in student">
+    <td><img style="width: 150px;" src="{{student[0].anh}}" alt=""></td>
+    <td>{{student.ten}}</td>
+    <td> {{student.ns}}</td>
+    <td>{{student.gioitinh}}</td>
+    <td>{{student.diem}}</td>
+</tr>
+    </div>
+    <script src="js.js">
+
+    </script>
+
+</body>
+
+</html>
